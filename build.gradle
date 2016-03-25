@@ -26,6 +26,7 @@ repositories {
 
 
 dependencies {
+	compile('net.sourceforge.nekohtml:nekohtml')
 	compile('com.google.code.gson:gson')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
