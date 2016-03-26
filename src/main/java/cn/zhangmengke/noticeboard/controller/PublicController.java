@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PublicController {
     @RequestMapping(value = "publicnews" ,method = RequestMethod.GET)
     public String getNews(){
-
+        return "false";
     }
 
 }

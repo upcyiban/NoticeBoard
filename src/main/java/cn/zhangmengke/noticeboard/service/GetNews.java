@@ -10,10 +10,13 @@ import javax.servlet.http.HttpSession;
  */
 @Service
 public class GetNews {
+
     @Autowired
     private HttpSession httpSession;
 
     public String saveNoticeNews(String content){
-        int yibanid = httpSession.getAttribute("userid");
+
+        int yibanid = (int) httpSession.getAttribute("userid");
+        return "error";
     }
 }
