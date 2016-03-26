@@ -27,9 +27,7 @@ public class LoginService {
     public String loginPro(String verify_request) throws Exception {
         MCrypt mCrypt = new MCrypt();
         String output = new String(mCrypt.decrypt(verify_request));
-        Gson gson = new Gson();
-        SessionUser sessionUser = gson.fromJson(output,SessionUser.class);
-        saveService(sessionUser);
+        saveService(output);
         return "redirect:/";
     }
     public String testOauthSer(Model model){
@@ -42,10 +40,22 @@ public class LoginService {
         return"redirect:https://openapi.yiban.cn/oauth/authorize?client_id=" + DevConfig.client_id + "&redirect_uri=" + DevConfig.redirect_uri;
     }
 
-    public String saveService(SessionUser sessionUser){
-        httpSession.setAttribute("userid",sessionUser.visit_user.userid);
-        httpSession.setAttribute("username",sessionUser.visit_user.username);
-        return "success";
+    public String saveService(String s){
+        Gson gson = new Gson();
+        try {
+            SessionUser sessionUser = gson.fromJson(s,SessionUser.class);
+            httpSession.setAttribute("visit_time", sessionUser.visit_time);
+            httpSession.setAttribute("userid", sessionUser.visit_user.userid);
+            httpSession.setAttribute("username", sessionUser.visit_user.username);
+            httpSession.setAttribute("usernick", sessionUser.visit_user.usernick);
+            httpSession.setAttribute("usersex", sessionUser.visit_user.usersex);
+            httpSession.setAttribute("access_token", sessionUser.visit_oauth.access_token);
+            httpSession.setAttribute("token_expires", sessionUser.visit_oauth.token_expires);
+            return "success";
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return "error";
+        }
     }
 }
 
