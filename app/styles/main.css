@@ -43,6 +43,7 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
+  padding-top: 10px;
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -51,13 +52,32 @@ body {
   padding: 14px 24px;
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
+.jumbotron p {
+  margin-bottom: 0;
 }
-.marketing p + h4 {
-  margin-top: 28px;
+
+.one-message {
+  border-radius: 15px;
+  border: solid #00b3ee;
+  margin-bottom: 10px;
 }
+
+.one-message > h2 {
+  margin-top: 10px;
+}
+
+.message-content {
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.message-publishtime {
+  margin-right: 5px;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

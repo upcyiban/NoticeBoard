@@ -32,6 +32,9 @@ angular.module('noticeBoardApp')
       });
     }
 
-    $http.get(apiURL + '');
+    $http.get(apiURL + 'getall').then(function (response) {
+      console.log(response.data);
+      $scope.newslists = response.data;
+    });
 
   });

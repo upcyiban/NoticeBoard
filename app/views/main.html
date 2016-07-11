@@ -1,9 +1,17 @@
 <div class="jumbotron">
-  <div ng-show="!isadmin">
+  <h1>石大易公告</h1>
+  <p style="margin-bottom: 10px">发布你值得关注的校园通知(bate版)</p>
+
+  <div ng-show="isadmin">
     <h2>管理员点此进入管理页面</h2>
     <p><a class="btn btn-lg btn-success" ng-href="#/admin">管理!</span></a></p>
   </div>
 
-  <h1></h1>
+  <div class="one-message" ng-repeat="news in newslists">
+    <h2 class="message-title">{{news.title}}</h2>
+    <p class="message-content">{{news.message}}</p>
+    <p class="message-publishtime">{{news.publishtime.year}}/{{news.publishtime.monthValue}}/{{news.publishtime.dayOfMonth}} - {{news.publishtime.hour}}:{{news.publishtime.minute}}</p>
+  </div>
+
 </div>
 

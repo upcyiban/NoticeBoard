@@ -50,7 +50,9 @@ var apiURL = "http://localhost:8087/bbs/";
 //var apiURL = "http://yb.upc.edu.cn:8087/bbs/";
 
 var appid = "acaec190548725cf";
+//var appid = "2ea80ee142309362";
 var redirectURL = "http://f.yiban.cn/iapp54099";
+//var redirectURL = "http://f.yiban.cn/iapp54333";
 
 var postconfig = {
   headers: {
