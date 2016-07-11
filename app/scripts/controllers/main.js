@@ -8,16 +8,30 @@
  * Controller of the noticeBoardApp
  */
 angular.module('noticeBoardApp')
-  .controller('MainCtrl', function ($location, $http) {
+  .controller('MainCtrl', function ($location, $http, $scope) {
+
+    $scope.isadmin = false;
 
     var verify_request = $location.search().verify_request;
-    if (verify_request != null){
-      $http.get(apiURL + 'auth?vq=' + verify_request).then(function (response) {
-        var data = response.data;
-        if (data == 1){
-          //$location.url('admin');
+    $location.url('/');
+    if (verify_request != null) {
+      $http.get(apiURL + 'auth?vq=' + verify_request).then(function (response1) {
+        if (response1.data == 1){
+          $http.get(apiURL + 'isadmin').then(function (response2) {
+            if (response2.data == 1){
+              $scope.isadmin = true;
+            }
+          })
+        }
+      });
+    }else {
+      $http.get(apiURL + 'isadmin').then(function (response) {
+        if (response.data == 1) {
+          $scope.isadmin = true;
         }
       });
     }
+
+    $http.get(apiURL + '');
 
   });
