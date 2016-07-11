@@ -56,6 +56,10 @@ body {
   margin-bottom: 0;
 }
 
+.admin {
+  margin-bottom: 20px;
+}
+
 .one-message {
   border-radius: 15px;
   border: solid #00b3ee;
