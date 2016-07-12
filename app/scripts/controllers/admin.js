@@ -17,16 +17,27 @@ angular.module('noticeBoardApp')
     });
 
     $scope.postNew = function () {
+
       var data = $.param({
         title: $scope.title,
         message: $scope.message,
         tag: 'default'
       });
+
       $http.post(apiURL + 'postnew', data, postconfig).then(function (response) {
         if (response.data.code == 0){
-          console.log("success");
+          alert('发布成功');
+          $scope.title = "";
+          $scope.message = "";
         }
-      })
-    }
+      });
+
+      
+    };
+
+    $http.get(apiURL + 'getall').then(function (response) {
+      console.log(response.data);
+      $scope.newslists = response.data;
+    });
 
   });
