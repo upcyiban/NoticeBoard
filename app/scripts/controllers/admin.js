@@ -1,5 +1,10 @@
 'use strict';
 
+function getAllNotification($http, $scope) {
+  $http.get(apiURL + 'getall').then(function (response) {
+      $scope.newslists = response.data;
+    });
+}
 /**
  * @ngdoc function
  * @name noticeBoardApp.controller:AdminCtrl
@@ -29,15 +34,19 @@ angular.module('noticeBoardApp')
           alert('发布成功');
           $scope.title = "";
           $scope.message = "";
+          getAllNotification($http, $scope);
         }
       });
 
-      
     };
 
-    $http.get(apiURL + 'getall').then(function (response) {
-      console.log(response.data);
-      $scope.newslists = response.data;
-    });
+    getAllNotification($http, $scope);
+
+    $scope.deleteOne = function ($event, id) {
+      $http.get(apiURL + 'delete?Nid=' + id).then(function (response) {
+        alert("删除成功");
+        getAllNotification($http, $scope);
+      });
+    }
 
   });

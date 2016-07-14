@@ -11,4 +11,23 @@
     </div>
   </form>
   <button class="btn btn-primary" ng-click="postNew($event)">发布</button>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>标题</th>
+      <th>编辑</th>
+      <th>删除</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="newslist in newslists">
+      <td>{{newslist.id}}</td>
+      <td>{{newslist.title}}</td>
+      <td><a ng-href="#/edit?id={{newslist.id}}">编辑</a></td>
+      <td class="btn-td"><button class="btn btn-sm del-btn" ng-click="deleteOne($event, newslist.id)">删除</button></td>
+    </tr>
+    </tbody>
+  </table>
 </div>

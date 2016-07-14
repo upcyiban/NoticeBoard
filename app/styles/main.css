@@ -47,10 +47,6 @@ body {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
 }
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
 
 .jumbotron p {
   margin-bottom: 0;
@@ -80,6 +76,14 @@ body {
   margin-right: 5px;
   text-align: right;
   margin-bottom: 5px;
+}
+
+.btn-td{
+  padding: 5px !important;
+}
+
+.del-btn {
+  padding: 3px 10px;
 }
 
 
