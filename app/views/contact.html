@@ -5,7 +5,7 @@
   <h2>问题反馈</h2>
   <p ng-show="noauth">要反馈问题必须经过易班认证哦</p>
   <button class="btn-auth btn btn-success" ng-show="noauth" ng-click="goAuth($event)">去易班认证</button>
-  <textarea class="form-control" rows="4">{{auth_notice}}</textarea>
+  <input class="form-control" ng-model="message_area"/>
   <br/>
-  <button class="btn btn-success" ng-class="{disabled: noauth}">确认提交</button>
+  <button class="btn btn-success" ng-class="{disabled: noauth}" ng-click="submitFeedBack($event)">确认提交</button>
 </div>
