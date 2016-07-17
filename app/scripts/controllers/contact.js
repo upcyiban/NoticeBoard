@@ -8,10 +8,9 @@
  * Controller of the noticeBoardApp
  */
 angular.module('noticeBoardApp')
-  .controller('ContactCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('ContactCtrl', function ($scope) {
+
+    $scope.noauth = true;
+    $scope.auth_notice = "请先进行易班授权"
+
   });
