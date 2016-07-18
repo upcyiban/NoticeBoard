@@ -25,13 +25,13 @@ angular.module('noticeBoardApp')
           });
           $http.post(baseURL + 'feedback', data, postconfig)
             .then(function (response) {
-            if (response.data.code === 0) {
-              alert('反馈成功,感谢您的意见。');
-              $scope.message = '';
-            }else {
-              alert('未知错误,静待修复。');
-            }
-          });
+              if (response.data.code === 0) {
+                alert('反馈成功,感谢您的意见。');
+                $scope.message = '';
+              }else {
+                alert('未知错误,静待修复。');
+              }
+            });
         }
 
       }else {
@@ -40,5 +40,7 @@ angular.module('noticeBoardApp')
         }
       }
     });
+
+
 
   });

@@ -24,7 +24,8 @@ angular.module('noticeBoardApp')
           })
         }
       });
-    }else {
+    }
+    else {
       $http.get(apiURL + 'isadmin').then(function (response) {
         if (response.data == 1) {
           $scope.isadmin = true;
@@ -33,7 +34,6 @@ angular.module('noticeBoardApp')
     }
 
     $http.get(apiURL + 'getall').then(function (response) {
-      console.log(response.data);
       $scope.newslists = response.data;
     });
 
